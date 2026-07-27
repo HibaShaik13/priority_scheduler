@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"; 
-import { useEffect, useState, useRef } from "react"; 
+import { useEffect, useState, useRef, useMemo } from "react"; 
 import "./Simulation.css"; 
 const cpuImage = 
 "https://t3.ftcdn.net/jpg/02/26/07/38/360_F_226073875_pAXMTrDH9XokT4qKe0Yv4wsDpJgHifkN.jpg"; 
@@ -7,15 +7,15 @@ function Simulation() {
 const location = useLocation(); 
 const navigate = useNavigate(); 
 /* ✅ ENSURE OUTPUT STRUCTURE ALWAYS EXISTS */ 
-const rawOutput = location.state?.output || {}; 
-const output = { 
-processes: rawOutput.processes || [], 
-gantt: rawOutput.gantt || [], 
-averageWT: rawOutput.averageWT ?? 0, 
-averageTAT: rawOutput.averageTAT ?? 0, 
-type: rawOutput.type || "Unknown" 
-}; 
-const gantt = output?.gantt || []; 
+const rawOutput = location.state?.output; 
+const output = useMemo(() => ({ 
+processes: rawOutput?.processes || [], 
+gantt: rawOutput?.gantt || [], 
+averageWT: rawOutput?.averageWT ?? 0, 
+averageTAT: rawOutput?.averageTAT ?? 0, 
+type: rawOutput?.type || "Unknown" 
+}), [rawOutput]); 
+const gantt = useMemo(() => output?.gantt || [], [output?.gantt]); 
 const [currentIndex, setCurrentIndex] = useState(0); 
 const [movingProcess, setMovingProcess] = useState(null); 
 const [stage, setStage] = useState("idle"); 

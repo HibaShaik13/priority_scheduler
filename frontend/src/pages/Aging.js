@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import "./Simulation.css";
 
 const cpuImage =
@@ -47,7 +47,7 @@ useEffect(() => {
       setOutput(data);
     });
 }, [oldOutput, location.state]);
-  const gantt = output?.gantt || [];
+  const gantt = useMemo(() => output?.gantt || [], [output?.gantt]);
 
   const colors = {};
   if (output?.processes) {
@@ -190,6 +190,7 @@ useEffect(() => {
     setPreviousPriorities(history);
     setWaitingStatus(updatedStatus);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     clock,
     movingProcess,

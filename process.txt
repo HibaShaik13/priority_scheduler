@@ -60,6 +60,7 @@ Render will host your Node.js/Express backend API.
    - Build Command: `npm install`
    - Start Command: `npm start`
    - Instance Type: `Free`
+   - Environment Variables: None needed (Render automatically sets the `PORT` variable, and this backend does not require any databases or API keys).
 6. Scroll down and click "Deploy Web Service".
 7. Wait for the build and deployment process to finish. Once successful, copy the live URL provided at the top left of the page (it will look like: `https://priority-scheduler-backend.onrender.com`). Make sure there is no trailing slash when you copy it.
 
