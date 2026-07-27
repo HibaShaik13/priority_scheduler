@@ -85,4 +85,26 @@ Vercel will host your React frontend app.
 6. Click "Deploy".
 7. Once deployment is complete, Vercel will provide you with a live URL (e.g., `https://priority-scheduler-frontend.vercel.app`).
 
+
+--------------------------------------------------------------------------------
+5. DEPLOYING THE FRONTEND TO RENDER (ALTERNATIVE TO VERCEL)
+--------------------------------------------------------------------------------
+Render can also host your React frontend app as a free "Static Site".
+
+1. Go to https://dashboard.render.com/ and log in.
+2. Click the blue "New +" button and select "Static Site".
+3. Connect your GitHub repository (`priority-scheduler-3d`).
+4. Configure the Static Site settings:
+   - Name: `priority-scheduler-frontend` (or any name you prefer)
+   - Branch: `main`
+   - Root Directory: `frontend`   <-- CRITICAL: This points Render to your frontend folder.
+   - Build Command: `npm run build`
+   - Publish Directory: `build`   <-- CRITICAL: The build output folder inside frontend.
+5. Click "Advanced" to add the environment variables:
+   - Click "Add Environment Variable".
+   - Key: `REACT_APP_API_URL`
+   - Value: `https://priority-scheduler-backend.onrender.com` (Paste your Render backend URL. Do NOT include a trailing slash).
+6. Click "Create Static Site".
+7. Wait for the build to finish. Once done, Render will provide a live URL (e.g., `https://priority-scheduler-frontend.onrender.com`).
+
 You're done! Your frontend will load in the browser and send API requests directly to the deployed Render backend!
