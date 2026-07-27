@@ -1,0 +1,277 @@
+.results2-dashboard {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+/* MAIN TITLE */
+.main-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #60a5fa, #f472b6);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* TOP STATS */
+.top-stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.stat-card:first-child {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ff006e;
+  
+}
+
+.stat-card:last-child {
+  background: linear-gradient(135deg, #ff4d6d, #ff006e);
+  color: #6366f1;
+}
+
+.stat-card p {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+/* TABLES */
+.tables-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.table-box {
+  flex: 1;
+}
+
+.table-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #38bdf8;
+}
+
+.premium-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.premium-table th {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+}
+
+.premium-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.premium-table tr:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* IMPROVEMENT CARDS */
+.improvement-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.improve-card {
+  flex: 1;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  background: linear-gradient(135deg, #10b981, #34d399);
+  font-weight: bold;
+}
+
+.improve-card:last-child {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.green {
+  color: #00ffcc;
+  font-size: 22px;
+}
+
+.red {
+  color: #ff4d4d;
+  font-size: 22px;
+}
+
+/* CHARTS */
+.charts-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.chart-half {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.chart-half h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #c084fc;
+}
+
+/* TIMELINE */
+.timeline-section {
+  margin-bottom: 40px;
+}
+
+.timeline-section h2 {
+  margin-bottom: 15px;
+  color: #22d3ee;
+}
+
+/* AI BOX */
+.ai-section {
+  margin-top: 30px;
+}
+
+.ai-box {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.ai-section h2 {
+  margin-bottom: 15px;
+  color: #f472b6;
+}/* Smooth fade */
+.fade-in {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating animation */
+.stat-card,
+.improve-card,
+.chart-half,
+.ai-box {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Glowing Borders */
+.stat-card {
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 15px rgba(139,92,246,0.6);
+}
+
+.improve-card {
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 15px rgba(16,185,129,0.6);
+}
+
+.chart-half {
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(96,165,250,0.4);
+}
+
+.ai-box {
+  box-shadow: 0 0 25px rgba(244,114,182,0.4);
+}
+
+/* Glowing main title */
+.main-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #60a5fa, #f472b6, #22d3ee);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(96,165,250,0.4); }
+  to { text-shadow: 0 0 25px rgba(244,114,182,0.8); }
+}/* TIMELINE CONTAINER */
+.timeline-container {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+}
+
+.timeline-block {
+  flex: 1;               /* 🔥 THIS makes it fill equally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #334155, #1e293b);
+  color: white;
+  transition: all 0.4s ease;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ACTIVE PROCESS */
+.timeline-active {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  box-shadow: 0 0 25px rgba(6,182,212,0.8);
+  transform: scale(1.05);
+}
+
+/* PROCESS NAME */
+.process-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* COMPLETION TIME BELOW */
+.time-label {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+/* Section Title */
+.section-title {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #22d3ee;
+}

@@ -1,0 +1,212 @@
+/* ========================= */
+/*       SAAS DASHBOARD      */
+/* ========================= */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #0f172a;
+  color: #fff;
+}
+
+/* Layout */
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 240px;
+  background: #111827;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #00f2fe;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+  color: #cbd5e1;
+}
+
+.sidebar li:hover {
+  background: rgba(0, 242, 254, 0.15);
+  color: #00f2fe;
+}
+
+.sidebar .active {
+  background: rgba(0, 242, 254, 0.2);
+  color: #00f2fe;
+}
+
+/* ================= MAIN ================= */
+
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.topbar h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.profile {
+  background: #1f2937;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.stat-card p {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ================= GLASS CARD ================= */
+
+.glass-card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= GANTT ================= */
+
+.gantt-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.gantt-bar {
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  animation: growBar 0.8s ease forwards;
+  transform-origin: left;
+}
+
+@keyframes growBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* CPU Indicator */
+
+.cpu-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* ================= TABLE ================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background: #0f172a;
+  color: #00f2fe;
+}
+
+tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
+
+tr:hover {
+  background: rgba(0,242,254,0.1);
+  transition: 0.3s;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .stats {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

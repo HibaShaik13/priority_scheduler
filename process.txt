@@ -1,0 +1,87 @@
+DEPLOYMENT PROCEDURE: PRIORITY SCHEDULER 3D
+============================================
+
+This file contains the step-by-step instructions to upload your project to GitHub and deploy the frontend to Vercel and the backend to Render.
+
+--------------------------------------------------------------------------------
+1. CODE PREPARATION (Already Completed!)
+--------------------------------------------------------------------------------
+To ensure successful deployment, we have already updated the following in your repository:
+- Added a root-level `.gitignore` file to prevent committing `node_modules/` or temporary build folders to GitHub.
+- Fixed the backend start script in `backend/package.json` to launch `server.js` (previously it was looking for `index.js`, which doesn't exist).
+- Configured the backend in `backend/server.js` to listen to a dynamic port (`process.env.PORT || 5000`) instead of a hardcoded `5000` (required by Render).
+- Configured the React frontend in `frontend/src/pages/Input.js` and `frontend/src/pages/Aging.js` to dynamically use the `process.env.REACT_APP_API_URL` environment variable, falling back to `http://localhost:5000` for local development.
+
+
+--------------------------------------------------------------------------------
+2. UPLOADING CODE TO GITHUB
+--------------------------------------------------------------------------------
+First, push your local codebase to a new repository on GitHub.
+
+1. Go to https://github.com/ and log in.
+2. Click the "New" button (or go to https://github.com/new) to create a new repository.
+3. Name your repository (e.g., `priority-scheduler-3d`), keep it Public/Private as you prefer, and click "Create repository" (Do NOT initialize it with README, .gitignore, or license, as we already have them).
+4. Open your terminal (e.g., PowerShell, Git Bash, or CMD) in the project root directory (`priority-scheduler-3d` folder) and run the following commands:
+
+   # Initialize a git repository
+   git init
+
+   # Stage all files
+   git add .
+
+   # Commit files
+   git commit -m "Configure project for deployment"
+
+   # Rename branch to main
+   git branch -M main
+
+   # Add your GitHub repository as the remote origin (Replace URL with your own repo URL)
+   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+
+   # Push to GitHub
+   git push -u origin main
+
+
+--------------------------------------------------------------------------------
+3. DEPLOYING THE BACKEND TO RENDER
+--------------------------------------------------------------------------------
+Render will host your Node.js/Express backend API.
+
+1. Go to https://dashboard.render.com/ and sign up or log in (using your GitHub account makes it easier).
+2. Click the blue "New +" button and select "Web Service".
+3. Select "Build and deploy from a Git repository".
+4. Search for your repository (`priority-scheduler-3d`) and click "Connect".
+5. Configure the Web Service settings as follows:
+   - Name: `priority-scheduler-backend` (or any name you prefer)
+   - Region: Select the region closest to you or your users (e.g., Oregon (US West) or Frankfurt (EU Central))
+   - Branch: `main`
+   - Root Directory: `backend`   <-- CRITICAL: This points Render to your backend folder.
+   - Runtime: `Node`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+   - Instance Type: `Free`
+6. Scroll down and click "Deploy Web Service".
+7. Wait for the build and deployment process to finish. Once successful, copy the live URL provided at the top left of the page (it will look like: `https://priority-scheduler-backend.onrender.com`). Make sure there is no trailing slash when you copy it.
+
+*Note: Free instances on Render spin down after 15 minutes of inactivity. The first API request after some time might take 50 seconds to respond as it spins back up.*
+
+
+--------------------------------------------------------------------------------
+4. DEPLOYING THE FRONTEND TO VERCEL
+--------------------------------------------------------------------------------
+Vercel will host your React frontend app.
+
+1. Go to https://vercel.com/ and sign up or log in (preferably with your GitHub account).
+2. On your Vercel Dashboard, click "Add New..." -> "Project".
+3. Under "Import Git Repository", find your repository (`priority-scheduler-3d`) and click "Import".
+4. Configure the project settings:
+   - Project Name: `priority-scheduler-frontend` (or any name you prefer)
+   - Framework Preset: `Create React App` (Vercel should automatically detect this)
+   - Root Directory: Click "Edit" and choose the `frontend` directory. Click "Continue".
+5. Expand the "Environment Variables" section and add the following variable:
+   - Name: `REACT_APP_API_URL`
+   - Value: `https://priority-scheduler-backend.onrender.com` (Paste the Render backend URL you copied in the previous step. Do NOT include a trailing slash).
+6. Click "Deploy".
+7. Once deployment is complete, Vercel will provide you with a live URL (e.g., `https://priority-scheduler-frontend.vercel.app`).
+
+You're done! Your frontend will load in the browser and send API requests directly to the deployed Render backend!

@@ -1,0 +1,140 @@
+/* ========================= */
+/* ONLY FOR RESULTS1 PAGE   */
+/* ========================= */
+
+.results-dashboard {
+  padding: 25px;
+}
+
+/* Header */
+.results-dashboard .header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.results-dashboard .header p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* KPI Cards */
+.results-dashboard .kpi-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.results-dashboard .kpi-card {
+  flex: 1;
+  min-width: 220px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.results-dashboard .gradient1 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.results-dashboard .gradient2 {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+}
+
+.results-dashboard .gradient3 {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.results-dashboard .kpi-card h2 {
+  margin-top: 8px;
+  font-size: 24px;
+}
+
+/* Chart Section */
+.results-dashboard .chart-section {
+  margin-bottom: 35px;
+}
+
+/* Table */
+.results-dashboard .table-section {
+  margin-bottom: 35px;
+  overflow-x: auto;
+}
+
+.results-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-dashboard th {
+  background: #1f2937;
+  color: white;
+  padding: 10px;
+}
+
+.results-dashboard td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Priority Badges */
+.results-dashboard .badge {
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: white;
+}
+
+.results-dashboard .high {
+  background-color: #e74c3c;
+}
+
+.results-dashboard .medium {
+  background-color: #f39c12;
+}
+
+.results-dashboard .low {
+  background-color: #2ecc71;
+}
+
+/* Gantt */
+.results-dashboard .gantt-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.results-dashboard .gantt-bar {
+  background: #4e73df;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Button */
+.results-dashboard .btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.results-dashboard .btn-container button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4e73df;
+  color: white;
+  cursor: pointer;
+}
+
+.results-dashboard .btn-container button:hover {
+  background-color: #2e59d9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .results-dashboard .kpi-grid {
+    flex-direction: column;
+  }
+}

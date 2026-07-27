@@ -1,0 +1,220 @@
+
+.simulation-container {
+  padding: 40px;
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.controls button {
+  padding: 8px 18px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.simulation-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+/* LEFT PANEL */
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.process-header {
+  display: flex;
+  gap: 25px;
+  font-weight: bold;
+  color: black;
+}
+
+.process-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: black;
+}
+
+.process-values {
+  display: flex;
+  gap: 15px;
+  width: 220px;
+  color: black;
+}
+
+.process-values span {
+  min-width: 65px;
+  text-align: center;
+}
+
+.process-static {
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* CPU */
+
+.cpu-section {
+  width: 450px;
+  margin-top: 60px;
+}
+
+.cpu-section img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.active-cpu {
+  box-shadow: 0 0 40px #4dabf7;
+  transform: scale(1.05);
+}
+
+/* MOVING BOX */
+
+.moving-box {
+  position: absolute;
+  border-radius: 28px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.8s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.toCPU { left: 350px; top: 120px; }
+.inCPU { left: 520px; top: 130px; }
+.toGantt { left: 520px; top: 300px; }
+
+/* GANTT */
+
+.gantt-container {
+  display: flex;
+  border: 3px solid black;
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.gantt-block {
+  position: relative;
+  border-right: 3px solid black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.completion-time {
+  position: absolute;
+  bottom: -28px;
+  right: -8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.result-btn {
+  margin-top: 40px;
+  padding: 10px 25px;
+  background: #228be6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.clock {
+  font-weight: bold;
+  color: black;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #ddd;
+  margin: 15px 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg,#4caf50,#2196f3);
+  transition: width 0.3s ease;
+}
+/* WAITING TEXT */
+
+.waiting-text {
+  color: #ff9800;
+  font-weight: bold;
+  margin-left: 10px;
+  animation: pulse 1s infinite;
+}
+
+/* STARVING TEXT */
+
+.starving-text {
+  color: red;
+  font-weight: bold;
+  margin-left: 10px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.comparision-btn {
+  margin-top: 40px;
+  padding: 10px 25px;
+  background: #228be6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.speed-label {
+  color: black !important;
+}
